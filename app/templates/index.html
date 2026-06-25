@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReviewSense - Your Business Reputation Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='reviewsense.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body class="bg-zinc-950 text-white font-sans">
+
+    <!-- Original Navbar (Unchanged) -->
+    <nav>
+        <a href="/" class="logo">
+            Review<span>Sense</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="/login-page" class="btn-solid">Login</a>
+            <a href="/register-page" class="btn-solid">Register</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Updated -->
+    <div style="min-height:calc(100vh - 64px); display:flex; justify-content:center; align-items:center; padding:40px; position:relative; overflow:hidden;">
+        <div class="absolute inset-0 bg-[radial-gradient(at_center,#4f46e510_0%,transparent_70%)]"></div>
+        
+        <div style="max-width:800px; text-align:center; position:relative; z-index:10;">
+            <h1 style="color:white; font-size:56px; margin-bottom:20px; line-height:1.1;">
+                Your business reputation,<br>
+                <span style="background: linear-gradient(to right, #a78bfa, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    always under control.
+                </span>
+            </h1>
+
+            <p style="color:#666B7E; font-size:20px; max-width:650px; margin:auto; line-height:1.8;">
+                Analyze customer reviews, uncover insights, and respond with confidence — all in one intelligent platform.
+            </p>
+        </div>
+    </div>
+
+    <!-- Features Section - Updated Cards -->
+    <section class="py-24 bg-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-semibold mb-4 text-white">Everything you need to manage your reputation</h2>
+                <p class="text-zinc-400 text-lg">Powerful tools. Simple interface.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card">
+                    <div class="h-14 w-14 bg-violet-500/10 text-violet-400 rounded-2xl flex items-center justify-center mb-8 text-3xl">
+                        📊
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Sentiment Analysis</h3>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Instantly understand how customers feel — positive, negative, or neutral — with accurate AI-powered sentiment detection.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="h-14 w-14 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center mb-8 text-3xl">
+                        📈
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Trend Detection</h3>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Discover recurring themes in your reviews. Know what you're doing right and what needs immediate attention.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="h-14 w-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center mb-8 text-3xl">
+                        💬
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4">Smart Responses</h3>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Generate professional, empathetic, on-brand replies in seconds. Maintain great relationships at scale.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="border-top:1px solid rgba(255,255,255,0.07);padding:18px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <span style="font-size:13px;color:#ffffff;font-weight:600;">&copy; <script>document.write(new Date().getFullYear())</script> ReviewSense. All rights reserved.</span>
+        <div style="display:flex;gap:20px;">
+            <a href="mailto:dharaprasath52@gmail.com" style="font-size:13px;color:#ffffff;font-weight:600;text-decoration:none;">Contact</a>
+        </div>
+    </footer>
+
+    <style>
+        .logo span {
+            color: #6C5CE7;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .btn-solid {
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px 32px;
+            transition: all 0.4s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #6C5CE7;
+        }
+    </style>
+</body>
+</html>

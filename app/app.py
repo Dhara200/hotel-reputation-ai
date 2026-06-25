@@ -1,12 +1,37 @@
 from flask import Flask
 from app.services.database_service import get_connection
+from app.routes.auth import auth_bp
+from app.routes.business import business_bp
+from app.routes.reviews import review_bp
+from app.routes.analysis import analysis_bp
+from app.routes.dashboard import dashboard_bp
+from app.config import Config
+from flask import render_template
+from flask import session
+from flask import redirect
+
 
 app = Flask(__name__)
+app.secret_key = Config.SECRET_KEY
+
+app.register_blueprint(auth_bp)
+app.register_blueprint(business_bp)
+app.register_blueprint(review_bp)
+app.register_blueprint(analysis_bp)
+app.register_blueprint(dashboard_bp)
 
 
 @app.route("/")
 def home():
-    return "AI Reputation Manager is running"
+    if "user_id" in session:
+
+        return redirect(
+            "/my-businesses"
+        )
+
+    return render_template(
+        "index.html"
+    )
 
 
 @app.route("/health")
@@ -38,5 +63,6 @@ def health():
         }, 500
 
 
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)

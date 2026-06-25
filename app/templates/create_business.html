@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<title>Create Business - ReviewSense</title>
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='reviewsense.css') }}"
+>
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="/" class="logo">
+    Review<span>Sense</span>
+</a>
+
+<div class="nav-links">
+
+    <a
+        href="/logout"
+        class="btn-ghost"
+    >
+        Logout
+    </a>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+    <h2>
+        Create Your First Business
+    </h2>
+
+    <p>
+        Add your business to start tracking reviews,
+        sentiment and customer feedback.
+    </p>
+
+    <form
+        method="POST"
+        action="/create-business-ui"
+    >
+
+        <div class="field">
+
+            <label>
+                BUSINESS NAME
+            </label>
+
+            <input
+                type="text"
+                name="business_name"
+                placeholder="Name of your business"
+                required
+            >
+
+        </div>
+
+        <div class="field">
+
+            <label>
+                BUSINESS TYPE
+            </label>
+
+            <input
+                type="text"
+                name="business_type"
+                placeholder="Hotel, Homestay, Restaurant..."
+                required
+            >
+
+        </div>
+
+        <div class="field">
+
+            <label>
+                CITY
+            </label>
+
+            <input
+                type="text"
+                name="city"
+                
+            >
+
+        </div>
+
+        <div class="field">
+
+            <label>
+                STATE
+            </label>
+
+            <input
+                type="text"
+                name="state"
+               
+            >
+
+        </div>
+
+        <div class="field">
+
+            <label>
+                COUNTRY
+            </label>
+
+            <input
+                type="text"
+                name="country"
+            >
+
+        </div>
+
+        <button
+            type="submit"
+            class="btn-submit"
+        >
+            Create Business
+        </button>
+
+    </form>
+
+</div>
+
+</div>
+
+</body>
+</html>

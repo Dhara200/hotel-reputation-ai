@@ -24,13 +24,15 @@ services:
     build:
       context: .
       dockerfile: docker/app/Dockerfile
+    volumes: 
+      - ./uploads:/app/uploads
 
     container_name: reputation_app
 
     restart: unless-stopped
 
     env_file:
-      - .env.example
+      - .env
 
     ports:
       - "5000:5000"

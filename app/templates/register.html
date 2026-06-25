@@ -3,8 +3,7 @@
 <html>
 <head>
 
-
-<title>Login - ReviewSense</title>
+<title>Register - ReviewSense</title>
 
 <link
     rel="stylesheet"
@@ -31,34 +30,46 @@
     </a>
 
     <a
-        href="/register-page"
+        href="/login-page"
         class="btn-solid"
     >
-        Register
+        Login
     </a>
 
 </div>
-
 
 </nav>
 
 <div class="container">
 
-
 <div class="card">
 
     <h2>
-        Welcome Back
+        Create Account
     </h2>
 
     <p>
-        Login to continue managing your business reputation.
+        Start managing your online reputation with AI.
     </p>
 
     <form
         method="POST"
-        action="/login-page"
+        action="/register-page"
     >
+
+        <div class="field">
+
+            <label>
+                FULL NAME
+            </label>
+
+            <input
+                type="text"
+                name="name"
+                required
+            >
+
+        </div>
 
         <div class="field">
 
@@ -92,7 +103,7 @@
             type="submit"
             class="btn-submit"
         >
-            Login
+            Create Account
         </button>
 
     </form>
@@ -101,13 +112,13 @@
 
     <p style="text-align:center">
 
-        Don't have an account?
+        Already have an account?
 
         <a
-            href="/register-page"
+            href="/login-page"
             style="color:#8B7CF8;text-decoration:none"
         >
-            Register
+            Login
         </a>
 
     </p>

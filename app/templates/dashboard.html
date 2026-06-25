@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<title>Dashboard - ReviewSense</title>
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='reviewsense.css') }}"
+>
+
+<style>
+
+    .page-container{
+        max-width:1000px;
+        margin:auto;
+        padding:40px 20px;
+    }
+
+    .dashboard-card{
+        background:var(--surface);
+        border:1px solid #6C5CE7;
+        border-radius:14px;
+        padding:25px;
+        margin-bottom:20px;
+    }
+
+    .dashboard-card h2{
+        color:white;
+        margin-bottom:15px;
+    }
+
+    .dashboard-card p,
+    .dashboard-card li{
+        color:var(--text);
+    }
+
+    .score-value{
+        font-size:54px;
+        font-weight:bold;
+        color:white;
+    }
+
+    .progress-bar{
+        width:100%;
+        height:18px;
+        background:#1f2937;
+        border-radius:30px;
+        overflow:hidden;
+        margin-top:15px;
+    }
+
+    .progress-fill{
+        width:{{ report.sentiment_score }}%;
+        height:100%;
+        background:#6C5CE7;
+    }
+
+    .metric-value{
+        font-size:42px;
+        font-weight:bold;
+        color:white;
+    }
+
+    .dashboard-card ul{
+        margin-left:20px;
+    }
+
+    .action-buttons{
+        display:flex;
+        flex-wrap:wrap;
+        gap:15px;
+        margin-top:10px;
+    }
+
+    .action-buttons form{
+        margin:0;
+    }
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="/" class="logo">
+    Review<span>Sense</span>
+</a>
+
+<div class="nav-links">
+
+    <a
+        href="/my-businesses"
+        class="btn-ghost"
+    >
+        My Businesses
+    </a>
+
+
+    <a
+        href="/logout"
+        class="btn-solid"
+    >
+        Logout
+    </a>
+
+</div>
+
+</nav>
+
+<div class="page-container">
+
+<h1 style="color:white;margin-bottom:20px;">
+    {{ report.business_name }}
+</h1>
+
+<div class="dashboard-card">
+
+    <h2>
+        Reputation Score
+    </h2>
+
+    <div class="score-value">
+        {{ report.sentiment_score }}%
+    </div>
+
+    <div class="progress-bar">
+
+        <div class="progress-fill"></div>
+
+    </div>
+
+    <p style="margin-top:15px;">
+        Overall customer sentiment score out of 100.
+    </p>
+
+</div>
+
+<div class="dashboard-card">
+
+    <h2>
+        Reviews Analyzed
+    </h2>
+
+    <div class="metric-value">
+        {{ report.review_count }}
+    </div>
+
+</div>
+
+<div class="dashboard-card">
+
+    <h2>
+        Summary
+    </h2>
+
+    <p>
+        {{ report.summary }}
+    </p>
+
+</div>
+
+<div class="dashboard-card">
+
+    <h2>
+        Top Praises
+    </h2>
+
+    <ul>
+
+        {% for item in report.top_praises %}
+
+        <li>
+            {{ item }}
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+<div class="dashboard-card">
+
+    <h2>
+        Top Complaints
+    </h2>
+
+    <ul>
+
+        {% for item in report.top_complaints %}
+
+        <li>
+            {{ item }}
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+<div class="dashboard-card">
+
+    <h2>
+        Actions
+    </h2>
+
+    <div class="action-buttons">
+
+        <a
+            href="/report/{{ business_id }}/pdf"
+            class="btn-solid"
+        >
+            Download PDF Report
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

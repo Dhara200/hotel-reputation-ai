@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap');
+
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+:root {
+--bg: #07090F;
+--surface: #0E1118;
+--surface2: #161A24;
+--border: rgba(255,255,255,0.08);
+
+--violet: #6C5CE7;
+--violet-soft: #8B7CF8;
+
+--white: #FFFFFF;
+--text: #C9CDD8;
+--muted: #666B7E;
+
+--radius: 14px;
+
+}
+
+body {
+font-family: 'Inter', sans-serif;
+background: var(--bg);
+color: var(--text);
+min-height: 100vh;
+}
+
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+height: 64px;
+padding: 0 5%;
+
+border-bottom: 1px solid var(--border);
+
+background: rgba(7,9,15,0.85);
+
+backdrop-filter: blur(12px);
+
+}
+
+.logo {
+font-family: 'Sora', sans-serif;
+font-size: 22px;
+font-weight: 700;
+color: white;
+text-decoration: none;
+}
+
+.logo span {
+color: var(--violet-soft);
+}
+
+.nav-links {
+display: flex;
+gap: 10px;
+}
+
+.btn-ghost {
+padding: 8px 16px;
+
+border-radius: 8px;
+border: 1px solid var(--border);
+
+background: transparent;
+color: var(--text);
+
+text-decoration: none;
+
+}
+
+.btn-solid {
+padding: 8px 16px;
+
+border-radius: 8px;
+border: none;
+
+background: var(--violet);
+color: white;
+
+text-decoration: none;
+
+}
+
+.container {
+width: 100%;
+max-width: 500px;
+
+margin: auto;
+padding: 40px 20px;
+
+}
+
+.card {
+background: var(--surface);
+
+
+border: 1px solid var(--border);
+
+border-radius: var(--radius);
+
+padding: 30px;
+
+}
+
+.card h2 {
+color: white;
+margin-bottom: 10px;
+}
+
+.card p {
+color: var(--muted);
+margin-bottom: 20px;
+}
+
+.field {
+margin-bottom: 16px;
+}
+
+.field label {
+display: block;
+
+
+margin-bottom: 6px;
+
+color: var(--muted);
+
+font-size: 12px;
+
+
+}
+
+.field input,
+.field textarea,
+.field select {
+width: 100%;
+
+
+padding: 12px;
+
+border-radius: 8px;
+
+border: 1px solid var(--border);
+
+background: var(--surface2);
+
+color: white;
+
+
+}
+
+.btn-submit {
+width: 100%;
+
+
+padding: 12px;
+
+border: none;
+
+border-radius: 8px;
+
+background: var(--violet);
+
+color: white;
+cursor: pointer;
+
+
+}

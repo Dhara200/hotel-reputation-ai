@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<title>My Businesses - ReviewSense</title>
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='reviewsense.css') }}"
+>
+
+<style>
+
+    .page-container{
+        max-width:1100px;
+        margin:auto;
+        padding:40px 20px;
+    }
+
+    .header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:30px;
+        flex-wrap:wrap;
+        gap:15px;
+    }
+
+    .business-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+        gap:20px;
+    }
+
+.business-card{
+    background:var(--surface);
+
+    border:1px solid #2563eb;
+
+    border-radius:14px;
+
+    padding:25px;
+
+    transition:all .2s ease;
+}
+
+.business-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 0 1px #2563eb,
+        0 8px 25px rgba(37,99,235,.25);
+
+}
+
+    .business-card h3{
+        color:white;
+        margin-bottom:10px;
+    }
+
+    .business-card p{
+        color:var(--muted);
+        margin-bottom:20px;
+    }
+
+    .actions{
+       display:flex;
+       flex-direction:column;
+       gap:14px;
+       margin-top:25px;
+   }
+
+    .actions a{
+       text-decoration:none;
+       text-align:center;
+       display:block;
+       padding:12px;
+       border-radius:10px;
+       font-weight:600;
+       transition:all .2s ease;
+}
+
+
+    .empty-box{
+        background:var(--surface);
+        border:1px solid var(--border);
+        border-radius:14px;
+        padding:30px;
+        text-align:center;
+    }
+
+    .dashboard-btn{
+background:#6C5CE7;
+color:white;
+}
+
+.dashboard-btn:hover{
+background:#7d6ef0;
+transform:translateY(-2px);
+}
+
+.upload-btn{
+background:#2563eb;
+color:white;
+}
+
+.upload-btn:hover{
+background:#3b82f6;
+transform:translateY(-2px);
+}
+
+.assistant-btn{
+background:#10b981;
+color:white;
+}
+
+.assistant-btn:hover{
+background:#34d399;
+transform:translateY(-2px);
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="/" class="logo">
+    Review<span>Sense</span>
+</a>
+
+<div class="nav-links">
+
+    <a
+        href="/create-business"
+        class="btn-solid"
+    >
+        Add Business
+    </a>
+
+    <a
+        href="/logout"
+        class="btn-ghost"
+    >
+        Logout
+    </a>
+
+</div>
+
+</nav>
+
+<div class="page-container">
+
+<div class="header">
+
+    <div>
+
+        <h1 style="color:white;">
+            Welcome {{ user_name }}
+        </h1>
+
+        <p style="color:var(--muted);">
+            Manage all your businesses from one place.
+        </p>
+
+    </div>
+
+</div>
+
+{% if businesses %}
+
+    <div class="business-grid">
+
+        {% for business in businesses %}
+
+        <div class="business-card">
+
+            <h3>
+                {{ business.business_name }}
+            </h3>
+
+            <p>
+                {{ business.business_type }}
+            </p>
+
+            <div class="actions">
+
+               <div style="margin-top:15px;">
+
+    <div class="actions">
+
+<a
+    href="/dashboard/{{ business.id }}"
+    class="dashboard-btn"
+>
+    📊 Open Dashboard
+</a>
+
+<a
+    href="/upload-reviews/{{ business.id }}"
+    class="upload-btn"
+>
+    📤 Upload Reviews
+</a>
+
+<a
+    href="/review-assistant"
+    class="assistant-btn"
+>
+    🤖 Review Assistant
+</a>
+
+</div>
+
+
+</div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+{% else %}
+
+    <div class="empty-box">
+
+        <h2 style="color:white;">
+            No Businesses Found
+        </h2>
+
+        <br>
+
+        <p>
+            Create your first business to start tracking reviews.
+        </p>
+
+        <br>
+
+        <a
+            href="/create-business"
+            class="btn-solid"
+        >
+            Create Business
+        </a>
+
+    </div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
